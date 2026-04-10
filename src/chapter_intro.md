@@ -1,7 +1,4 @@
 # Introduction
 
 > [!NOTE]
-> This is a note
-
-> [!IMPORTANT]
-> This is a note
+>> This is the introduction to the main concepts of Javascript.

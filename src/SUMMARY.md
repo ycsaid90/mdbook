@@ -1,14 +1,15 @@
 # Summary
 
-- [Introduction](./chapter_intro.md)
+[Introduction](./chapter_intro.md)
+---
 
-# Section 1
+# Section 1 "Playwright Basics"
 
-- [Chapter 1](./chapter_1.md)
-  - [Chapter 1.1](./chapter_1.1.md)
+- [First Steps](./chapter_1.md)
+  - [Installation](./chapter_1.1.md)
 
 ---
 
-# Section 2 "Part Title"
+# Section 2 "Javascript Basics"
 
-- [Chapter 2](./chapter_2.md)
+- [Main Concepts](./chapter_2.md)

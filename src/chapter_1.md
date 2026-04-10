@@ -1,13 +1,11 @@
-# Chapter 1
+# Playwright
 
 ## Playwright
 
-- Install
-- First Steps
-
+- [Playwright](www.playwright.com) is a Node.js library to automate Chromium, Firefox and WebKit with a single API. It is built to enable cross-browser web automation that is ever-green, capable, reliable and fast.
 <sub>Reference [Playwright](www.playwright.com)</sub>
 
-### Install
+### How to Install
 
 #### First Steps
 
