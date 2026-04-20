@@ -60,7 +60,7 @@ console.log(typeof null); // "object"
 console.log(typeof function() {}); // "function"
 ```
 
-- What is the difference between null and undefined?
+- What is the difference between `null` and `undefined`?
 
     `undefined` means a variable has been declared but has not been assigned a value. It is the default value of uninitialized variables and function parameters that are not provided.
 
