@@ -116,6 +116,7 @@ const person = {
 const greetFunction = person.greet;
 greetFunction(); // "Hello, undefined"
 ```
+
 In this example, the `greetFunction` does not have access to the `this` value of the `person` object, so it returns `undefined`. However, if we use an arrow function, it will inherit the `this` value from the surrounding scope, which is the `person` object:
 ```javascript
 const person = {
