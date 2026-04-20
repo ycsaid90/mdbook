@@ -5,11 +5,13 @@
 
 # Section 1 "Playwright Basics"
 
-- [First Steps](./chapter_1.md)
+- [First Steps](./playwright.md)
   - [Installation](./chapter_1.1.md)
 
 ---
 
 # Section 2 "Javascript Basics"
 
-- [Main Concepts](./chapter_2.md)
+- [Main Javascript Concepts](./js.md)
+
+- [English Notes](./english.md)

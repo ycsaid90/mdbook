@@ -12,7 +12,7 @@
 | Redeclarable |     ✅ Yes      |    ❌ No     |    ❌ No    |
 
 Examples:
-```
+```javascript
 var x = 10;
 var x = 20; // allowed
 console.log(x); // 20
@@ -22,7 +22,7 @@ if (true) {
 }
 console.log(a); // 5
 ```
-```
+```javascript
 let x = 10;
 x = 20; // allowed
 console.log(x); // 20
@@ -32,7 +32,7 @@ if (true) {
 }
 console.log(a); // ReferenceError
 ```
-```
+```javascript
 const x = 10;
 x = 20; // Error
 const user = { name: "Ana" };
@@ -80,14 +80,14 @@ console.log(typeof function() {}); // "function"
 - What is the difference between function declaration and function expression?
 
 A function declaration is a named function that is defined using the `function` keyword. It is hoisted to the top of its scope, which means it can be called before it is defined in the code. For example:
-```
+```javascript
 function greet() {
   console.log("Hello!");
 }
 greet(); // "Hello!"
 ```
 A function expression is an anonymous function that is assigned to a variable. It is not hoisted, which means it cannot be called before it is defined in the code. For example:
-```
+```javascript
 const greet = function() {
   console.log("Hello!");
 };
@@ -96,7 +96,7 @@ greet(); // "Hello!"
 - What is the difference between arrow function and regular function?
 
 An arrow function is a shorter syntax for writing functions in JavaScript. It does not have its own `this` context, which means it inherits the `this` value from the enclosing scope. This can be useful when working with callbacks or methods that need to access the `this` value of the surrounding code. For example:
-```
+```javascript
 const person = {
   name: "Ana",
   greet: function() {
@@ -106,7 +106,7 @@ const person = {
 person.greet(); // "Hello, Ana"
 ```
 In contrast, a regular function has its own `this` context, which can lead to different behavior when used in certain situations. For example:
-```
+```javascript
 const person = {
   name: "Ana",
   greet: function() {
@@ -117,7 +117,7 @@ const greetFunction = person.greet;
 greetFunction(); // "Hello, undefined"
 ```
 In this example, the `greetFunction` does not have access to the `this` value of the `person` object, so it returns `undefined`. However, if we use an arrow function, it will inherit the `this` value from the surrounding scope, which is the `person` object:
-```
+```javascript
 const person = {
   name: "Ana",
   greet: () => {
@@ -151,7 +151,7 @@ while (i < 5) {
 }
 ```
 The `do while` loop is similar to the `while` loop, but the condition is evaluated after the loop body is executed. This means that the loop body will always be executed at least once, even if the condition is false. For example:
-```
+```javascript
 let i = 0;
 do {
   console.log(i);
@@ -162,13 +162,13 @@ do {
 - What is the difference between `if`, `else if` and `else` statements?
 
 The `if` statement is used to execute a block of code if a specified condition is true. For example:
-```
+```javascript
 if (x > 10) {
   console.log("x is greater than 10");
 }
 ```
 The `else if` statement is used to specify a new condition to test if the previous `if` condition is false. You can have multiple `else if` statements to check for different conditions. For example:
-```
+```javascript
 if (x > 10) {
   console.log("x is greater than 10");
 } else if (x === 10) {
@@ -178,7 +178,7 @@ if (x > 10) {
 }
 ```
 The `else` statement is used to execute a block of code if all the previous conditions are false. It is optional and can be omitted if not needed. For example:
-```
+```javascript
 if (x > 10) {
   console.log("x is greater than 10");
 } else {
@@ -190,13 +190,13 @@ if (x > 10) {
 - What is the difference between `==` and `===`?
 
 The `==` operator compares two values for equality after performing type coercion if necessary. It will convert the operands to a common type before making the comparison. For example:
-```
+```javascript
 console.log(5 == "5");   // true
 console.log(0 == false); // true
 console.log(null == undefined); // true
 ```
 The `===` operator, also known as the strict equality operator, compares two values for equality without performing type coercion. It checks both the value and the type of the operands. For example:
-```
+```javascript
 console.log(5 === "5"); // false
 console.log(0 === false); // false
 console.log(null === undefined); // false

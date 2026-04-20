@@ -24,27 +24,37 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    env:
-      MDBOOK_VERSION: 0.5.2
     steps:
-      - uses: actions/checkout@v4
-      - name: Install mdBook
+      - uses: actions/checkout@v6
+      - name: Install latest mdbook
         run: |
-          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
-          rustup update
-          cargo install --version ${MDBOOK_VERSION} mdbook
+          tag="$(curl -fsSL 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')"
+          echo "tag=${tag}"
+          url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"
+          echo "url=${url}"
+          mkdir -p bin
+          curl -fsSL "$url" | tar -xz --directory=./bin
+          chmod +x ./bin/mdbook
+          echo "./bin/mdbook --version: $(./bin/mdbook --version)"
+          echo "$PWD/bin" >> "$GITHUB_PATH"
+      - name: Build Book
+        run: |
+          # This assumes your book is in the root of your repository.
+          # Just add a `cd` here if you need to change to another directory.
+          mdbook build
       - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Build with mdBook
-        run: mdbook build
+        uses: actions/configure-pages@v6
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
+          # Upload generated book output
           path: ./book
 
   # Deployment job
