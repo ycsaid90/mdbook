@@ -137,13 +137,13 @@ JavaScript runs code on a single main thread, but it can still handle asynchrono
 - What is the difference between `for`, `while` and `do while` loops?
 
 The `for` loop is typically used when the number of iterations is known beforehand. It consists of three parts: initialization, condition, and increment/decrement. For example:
-```
+```javascript
 for (let i = 0; i < 5; i++) {
   console.log(i);
 }
 ```
 The `while` loop is used when the number of iterations is not known and the loop needs to continue until a certain condition is met. The condition is evaluated before each iteration. For example:
-```
+```javascript
 let i = 0;
 while (i < 5) {
   console.log(i);
