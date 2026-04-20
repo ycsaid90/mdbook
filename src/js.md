@@ -214,7 +214,7 @@ A microtask has higher priority.
 It runs right after the current synchronous code finishes, before the event loop moves to the next macrotask.
 
 Common examples:
-```
+```javascript
 Promise.then()
 Promise.catch()
 Promise.finally()
@@ -226,7 +226,7 @@ A macrotask has lower priority.
 It runs after all microtasks have been processed and the event loop is ready to handle the next macrotask.
 
 Common examples:
-```
+```javascript
 setTimeout()
 setInterval()
 DOM events like clicks
@@ -249,11 +249,11 @@ Promise.resolve().then(() => {
 });
 
 console.log("end");
-```Output:
-```start
-end
-microtask
-macrotask
+Output:
+> start
+> end
+> microtask
+> macrotask
 ```
 
 - What is the difference between function declaration and function expression?
