@@ -130,9 +130,14 @@ person.greet(); // "Hello, Ana"
 
 ### Loops and Conditionals:
 
-- What is `even loop`?
+- What is `event loop`?
+The event loop is what allows JavaScript, despite being single-threaded, to handle asynchronous tasks without blocking, executing them at the right time.
 
-JavaScript runs code on a single main thread, but it can still handle asynchronous operations through the event loop. The event loop takes tasks from the queue, executes them, then processes microtasks like resolved Promises before moving to the next task
+JavaScript runs code on a single main thread, but it can still handle asynchronous operations through the event loop.
+The event loop is what allows JavaScript to:
+-run synchronous code first
+-wait for async tasks in the background
+-execute their callbacks later when the stack is free
 
 - What is the difference between `for`, `while` and `do while` loops?
 
@@ -200,6 +205,55 @@ The `===` operator, also known as the strict equality operator, compares two val
 console.log(5 === "5"); // false
 console.log(0 === false); // false
 console.log(null === undefined); // false
+```
+
+- What is the difference between microtask and macrotask?
+
+Microtask
+A microtask has higher priority.
+It runs right after the current synchronous code finishes, before the event loop moves to the next macrotask.
+
+Common examples:
+```
+Promise.then()
+Promise.catch()
+Promise.finally()
+queueMicrotask()
+```
+
+Macrotask
+A macrotask has lower priority.
+It runs after all microtasks have been processed and the event loop is ready to handle the next macrotask.
+
+Common examples:
+```
+setTimeout()
+setInterval()
+DOM events like clicks
+setImmediate() in Node.js
+```
+The order is usually:
+
+Run synchronous code
+Run all microtasks
+Run the next macrotask
+
+```javascript
+console.log("start");
+setTimeout(() => {
+  console.log("macrotask");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("microtask");
+});
+
+console.log("end");
+```Output:
+```start
+end
+microtask
+macrotask
 ```
 
 - What is the difference between function declaration and function expression?
